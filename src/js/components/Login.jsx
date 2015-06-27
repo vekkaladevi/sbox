@@ -93,8 +93,7 @@ class Login extends React.Component {
 	}
 
 	return (
-            <mui.Paper zDepth={2}>
-                
+           <mui.Paper zDepth={2}>                
 	        <Formsy.Form 
                className="formClassName" 
                onSubmit={this.submitForm.bind(this)} 
@@ -150,16 +149,16 @@ class Login extends React.Component {
     }
     
     render() {
+	      let style={
+		  clear:'0',
+		  margin:'5em',
+
+		  width:'70%'
+	      };
 	return (
-	    <div className="container">
-	        <div className="row">
-		    <div className="col-md-3"/>
-		    <div className="col-md-6 col-xs-12">
-		        {this.renderErrors()}
-		        {this.renderForm()}
-		    </div>
-		    <div className="col-md-3"/>
-		</div>
+	    <div style={style}>
+	      {this.renderErrors()}
+	      {this.renderForm()}
 	    </div>
 	);
     }
