@@ -30,11 +30,7 @@ class AppTopNav extends React.Component {
 
     getStyles() {
         return {
-            lineHeight: Spacing.desktopKeylineIncrement + 'px',
             paddingLeft: Spacing.desktopGutter,
-            paddingTop: '0px',
-            marginBottom: '8px',
-
             display: 'inline-block',
             textDecoration:'none'
         };
@@ -79,8 +75,8 @@ class AppTopNav extends React.Component {
     render() {
         let topMenuStyle = {
             marginLeft: "auto",
-            marginRight: -16,
-            paddingRight:'2em'
+            paddingRight:'2em',
+            marginTop: '5'
         };
         return (
             <div style={topMenuStyle}>
