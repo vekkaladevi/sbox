@@ -1,15 +1,16 @@
 import React from 'react';
-
 import Formsy from 'formsy-react';
-import Input from './input';
-import AlertPanel from './alert_panel';
-
-import UserAction from '../actions/user_action';
-import UserStore from '../stores/user_store';
-
-
 import mui from 'material-ui';
+import components from './components';
+let {
+    Input,
+    AlertPanel
+} = components;
+
 var RaisedButton = mui.RaisedButton;
+
+import UserAction from '../../actions/user_action';
+import UserStore from '../../stores/user_store';
 
 class Login extends React.Component {
     constructor() {
@@ -151,9 +152,7 @@ class Login extends React.Component {
     render() {
 	      let style={
 		  clear:'0',
-		  margin:'5em',
-
-		  width:'70%'
+		  margin:'5em'
 	      };
 	return (
 	    <div style={style}>

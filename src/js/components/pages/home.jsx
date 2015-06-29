@@ -44,11 +44,8 @@ var HomePage = React.createClass({
             overflow: 'hidden'
       },
       svgLogo: {
-          display: 'block',
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          width:'50%',
-          height:'50%'
+          marginLeft: (window.innerWidth * 0.5) - 130 + 'px',
+          width: '420px'
       },
       tagline: {
         margin: '16px auto 0 auto',
@@ -137,7 +134,7 @@ var HomePage = React.createClass({
       content: {
         maxWidth: '700px',
         padding: 0,
-        margin: '0 auto',
+          margin: '0 auto',
         fontWeight: Typography.fontWeightLight,
         fontSize: '20px',
         lineHeight: '28px',

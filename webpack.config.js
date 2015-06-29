@@ -19,10 +19,7 @@ module.exports = {
               { test: /\.less$/, loader: "style!css!less" },
 	    
 	    { test: /\.(jpe?g|png|gif|svg)$/i,
-              loaders: [
-		  'file?hash=sha512&digest=hex&name=[hash].[ext]',
-		  'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
-              ]
+              loader: 'url-loader?limit=8192' // inline base64 URLs for <=8k images, direct URLs for the rest
 	    },
 	    { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,   loader: "url?limit=10000&minetype=application/font-woff" },
 	    { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,    loader: "url?limit=10000&minetype=application/octet-stream" },

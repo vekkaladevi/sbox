@@ -1,15 +1,21 @@
 import React from 'react';
-
 import Formsy from 'formsy-react';
-import Input from './input';
-import Checkbox from './checkbox';
-import AlertPanel from './alert_panel';
-
-import UserAction from '../actions/user_action';
-import UserStore from '../stores/user_store';
-
 import mui from 'material-ui';
-var RaisedButton = mui.RaisedButton;
+
+import components from './components';
+let {
+    Input,
+    Checkbox,
+    AlertPanel
+} = components;
+
+let {
+    Paper,
+    RaisedButton
+} = mui;
+
+import UserAction from '../../actions/user_action';
+import UserStore from '../../stores/user_store';
 
 class Signup extends React.Component {
     constructor() {
@@ -60,7 +66,7 @@ class Signup extends React.Component {
 	    );
 	}
 	return (
-            <mui.Paper zDepth={2}>
+            <Paper zDepth={2}>
 	        <Formsy.Form 
                className="formClassName" 
                onSubmit={this.submitForm.bind(this)} 
@@ -143,12 +149,12 @@ class Signup extends React.Component {
                         <RaisedButton label="Submit" primary={true} />
                     </div>
 	        </Formsy.Form>
-            </mui.Paper>
+            </Paper>
 	);
     }
     render() {
 	return (
-	    <div className="container col-md-4 col-md-offset-4">
+	    <div>
 	        {this.renderErrors()}
 	        {this.renderForm()}
 	    </div>

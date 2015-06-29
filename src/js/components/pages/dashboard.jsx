@@ -1,8 +1,8 @@
 import React from 'react';
 
-import UserAction from '../actions/user_action';
-import TenantStore from '../stores/tenant_store';
-import UserStore from '../stores/user_store';
+import UserAction from '../../actions/user_action';
+import TenantStore from '../../stores/tenant_store';
+import UserStore from '../../stores/user_store';
 
 class Dashboard extends React.Component {
     constructor() {

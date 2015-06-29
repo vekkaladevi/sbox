@@ -1,7 +1,7 @@
 import React from 'react';
 
-import UserAction from '../actions/user_action';
-import UserStore from '../stores/user_store';
+import UserAction from '../../actions/user_action';
+import UserStore from '../../stores/user_store';
 
 class Logout extends React.Component {
     constructor() {

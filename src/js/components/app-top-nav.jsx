@@ -20,13 +20,14 @@ class AppTopNav extends React.Component {
 	UserStore.removeChangeListener(this._onChange.bind(this));
     }
 
+    _onChange() {
+	this.setState(this.getUserInfo())
+    }
+    
     getUserInfo() {
 	return UserStore.getUserInfo();
     }
 
-    _onChange() {
-	this.setState(this.getUserInfo())
-    }
     getStyles() {
         return {
             lineHeight: Spacing.desktopKeylineIncrement + 'px',
@@ -44,21 +45,30 @@ class AppTopNav extends React.Component {
         let userMenu;
 
         if (user.loggedIn) {
+            let routes = [
+                { to: 'settings', text:user.userName },
+                { to: 'logout', text: 'Logout' }
+            ];
             userMenu = (
                 <ul>
-                    <Link to='settings' style={this.getStyles()}><h1>{user.userName}</h1></Link>
-                    <Link to='logout' style={this.getStyles()}>Logout</Link>
+                    {routes.map((route, index) => (
+                        <Link key={index} to={route.to} style={this.getStyles()}>{route.text}</Link>
+                     ))}
                 </ul>
             );
         } else {
+            let routes = [
+                { to: 'login', text:'Login', primary:true, secondary:false },
+                { to: 'logout', text:'Signup', primary:false, secondary:true }
+            ];
+
             userMenu = (
-                <ul>
-                    <Link to='login' style={this.getStyles()}>
-                    <FlatButton linkButton={true} primary={true} label="Login"/>
-                    </Link>
-                    <Link to='signup' style={this.getStyles()}>
-                    <FlatButton linkButton={true} secondary={true} label="Signup"/>
-                    </Link>
+               <ul>
+                    {routes.map((route, index) => (
+                        <Link key={index} to={route.to} style={this.getStyles()}>
+                        <FlatButton  primary={route.primary} secondary={route.secondary}>{route.text}</FlatButton>
+                        </Link>
+                     ))}
                 </ul>
             );
         }
@@ -68,9 +78,9 @@ class AppTopNav extends React.Component {
     }
     render() {
         let topMenuStyle = {
-            float: 'right!important',
-            marginRight:'-10px',
-            marginTop:'10px'
+            marginLeft: "auto",
+            marginRight: -16,
+            paddingRight:'2em'
         };
         return (
             <div style={topMenuStyle}>

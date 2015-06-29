@@ -19,7 +19,7 @@ class Master extends React.Component {
     super();
     this._onLeftIconButtonTouchTap = this._onLeftIconButtonTouchTap.bind(this);
   }
-
+    
   getChildContext() {
     return {
       muiTheme: ThemeManager.getCurrentTheme()
@@ -31,7 +31,11 @@ class Master extends React.Component {
     return {
       footer: {
           backgroundColor: Colors.grey900,
-          textAlign: 'center'
+          textAlign: 'center',
+          left:'0px',
+          bottom:'0px',
+          height:'30px',
+          width:'100%'
       },
       a: {
         color: darkWhite
@@ -68,14 +72,11 @@ class Master extends React.Component {
         </AppBar>
 
         <AppLeftNav ref="leftNav" />
-
         <RouteHandler />
 
         <FullWidthSection style={styles.footer}>
-          <p style={styles.p}>
-            Hand crafted with love by the engineers at <a style={styles.a} href="http://call-em-all.com">Call-Em-All</a> and our
-            awesome <a style={styles.a} href="https://github.com/callemall/material-ui/graphs/contributors">contributors</a>.
-          </p>
+            <p>Contact us, faq</p>
+            <p>Copyright</p>
         </FullWidthSection>
 
       </AppCanvas>

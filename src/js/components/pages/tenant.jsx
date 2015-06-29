@@ -1,7 +1,7 @@
 import React from 'react';
 
-import UserAction from '../actions/user_action';
-import TenantStore from '../stores/tenant_store';
+import UserAction from '../../actions/user_action';
+import TenantStore from '../../stores/tenant_store';
 
 const styles = {};
 
