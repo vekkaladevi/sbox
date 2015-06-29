@@ -13,6 +13,7 @@ var ThemeManager = new mui.Styles.ThemeManager();
 
 var { AppBar, AppCanvas, IconButton} = mui;
 
+
 class Master extends React.Component {
 
   constructor() {
@@ -55,8 +56,6 @@ class Master extends React.Component {
   render() {
     var styles = this.getStyles();
     var title =
-      this.context.router.isActive('get-started') ? 'Get Started' :
-      this.context.router.isActive('customization') ? 'Customization' :
       this.context.router.isActive('components') ? 'Components' : 'SreeMaata';
 
     return (

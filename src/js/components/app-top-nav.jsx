@@ -55,7 +55,7 @@ class AppTopNav extends React.Component {
         } else {
             let routes = [
                 { to: 'login', text:'Login', primary:true, secondary:false },
-                { to: 'logout', text:'Signup', primary:false, secondary:true }
+                { to: 'signup', text:'Signup', primary:false, secondary:true }
             ];
 
             userMenu = (

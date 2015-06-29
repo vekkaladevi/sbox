@@ -9,8 +9,11 @@ let {
 
 var RaisedButton = mui.RaisedButton;
 
+import '../../../less/style.less';
+
 import UserAction from '../../actions/user_action';
 import UserStore from '../../stores/user_store';
+
 
 class Login extends React.Component {
     constructor() {
@@ -74,6 +77,7 @@ class Login extends React.Component {
 
     renderErrors() {
 	let errors;
+
 	if (this.state.errors.length) {
 	    errors = (
 		<AlertPanel style="danger">{this.state.errors}</AlertPanel>
@@ -151,8 +155,13 @@ class Login extends React.Component {
     
     render() {
 	      let style={
-		  clear:'0',
-		  margin:'5em'
+		  boxSizing: 'border-box',
+                  padding: 24,
+                  maxWidth: 896,
+                  marginLeft: '20%',
+                  marginRight: '20%',
+                  borderLeftStyle: 'solid',
+                  minHeight: 800
 	      };
 	return (
 	    <div style={style}>

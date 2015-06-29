@@ -1,29 +1,58 @@
 import React from 'react';
-
+let { Slider, Styles, Tab, Tabs } = require('material-ui');
+let { Typography } = Styles;
+import RouterContext from '../../lib/router.js';
 import UserAction from '../../actions/user_action';
-import TenantStore from '../../stores/tenant_store';
-import UserStore from '../../stores/user_store';
+//import TenantStore from '../../stores/tenant_store';
+//import UserStore from '../../stores/user_store';
 
 class Dashboard extends React.Component {
     constructor() {
 	super();
-	this.state = {
-	    ui: UserStore.getUserInfo()
-	};
+        this._onActive = this._onActive.bind(this);
     }
-    render () {
-	if (!this.state.ui.loggedIn) {
-	    return (
-	      <h1>Welecome User</h1>
-	    );
-	}
-	
+    dashboardItems() {
+        let dummy = (
+            <div><h2>Dasboard Item</h2></div>
+        );
+        
+        let items = [
+            { label: "Tenants", component: dummy},
+            { label: "Accounts", component: dummy},
+            { label: "Contacts", component: dummy}
+        ];
+        let dbItems = (
+            <Tabs onChange={this._onChange}>
+                {items.map((item, index) => (
+                    <Tab key={index} label={item.label}>
+                    {item.component}
+                    </Tab>
+                 ))}
+            </Tabs>
+        );
+        return (
+            {dbItems}  
+        );        
+    }
+    render() {
+        let style = {
+            boxSizing: 'border-box',
+            padding:80,
+            maxWidth: 896,
+            marginLeft: 192,
+            borderLeftStyle: 'solid',
+            borderLeftWidth: 1,
+            borderLeftColor: 'rgb(224, 224, 224)',
+            minHeight: 800
+        };
 	return (
-	  <div className="row">
-	    <div className="col-sm-10 col-sm-offset-1">
-	    </div>
-	  </div>
+            <div style={style}>
+                {this.dashboardItems()}
+            </div>
 	);
+    }
+    _onActive(tab){
+        RouterContext.get().transitionTo(tab.props.route);
     }
 }
 

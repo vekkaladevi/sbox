@@ -32,7 +32,7 @@ class UserStore extends EventEmitter {
 	if (credentials.email === 'vijay.ekkaladevi@gmail.com') {
 	    this.userInfo.loggedIn = true;
 	    this.userInfo.userName = "Vijay";
-	    Router.get().transitionTo("/");
+	    Router.get().transitionTo("/dashboard");
 	} else {
 	    this.userInfo.errors.push("Sorry we dont recognize this user");
 	}

@@ -14,6 +14,7 @@ let {
     RaisedButton
 } = mui;
 
+import '../../../less/style.less';
 import UserAction from '../../actions/user_action';
 import UserStore from '../../stores/user_store';
 
@@ -153,8 +154,17 @@ class Signup extends React.Component {
 	);
     }
     render() {
+        console.log("Showing Signup");
+        let style={
+		  boxSizing: 'border-box',
+                  padding: 24,
+                  maxWidth: 600,
+                  marginLeft: '20%',
+                  marginRight: '20%',
+                  minHeight: 800
+	      };
 	return (
-	    <div>
+	    <div style={style}>
 	        {this.renderErrors()}
 	        {this.renderForm()}
 	    </div>
