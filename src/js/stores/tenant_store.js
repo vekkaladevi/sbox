@@ -7,20 +7,10 @@ class TenantStore extends EventEmitter {
 	super();
 	this.state = {
             tenants: [
-                { name: "Shiva", phone: "4082349988", email: "shiva@devas.com"},
-                { name: "Vishnu", phone: "5102349988", email: "vishnu@devas.com"},
-                { name: "Vishnu", phone: "5102349988", email: "vishnu@devas.com"},
-                { name: "Vishnu", phone: "5102349988", email: "vishnu@devas.com"},
-                { name: "Vishnu", phone: "5102349988", email: "vishnu@devas.com"},
-                { name: "Vishnu", phone: "5102349988", email: "vishnu@devas.com"},
-                { name: "Vishnu", phone: "5102349988", email: "vishnu@devas.com"},
-                { name: "Vishnu", phone: "5102349988", email: "vishnu@devas.com"},
-                { name: "Vishnu", phone: "5102349988", email: "vishnu@devas.com"},
-                { name: "Vishnu", phone: "5102349988", email: "vishnu@devas.com"},
-                { name: "Vishnu", phone: "5102349988", email: "vishnu@devas.com"},
-                { name: "Vishnu", phone: "5102349988", email: "vishnu@devas.com"},
-                { name: "Vishnu", phone: "5102349988", email: "vishnu@devas.com"}
-
+                { name: "Shiva", location:"Mehdipatnam", balance:"20,000", phone: "4082349988", email: "shiva@devas.com"},
+                { name: "Brahma", location:"Chikkadapally", balance:"20,222", phone: "5102349988", email: "brahma@devas.com"},
+                { name: "Vishnu", location:"LB Nagar", balance:"9,3300", phone: "5102349988", email: "vishnu@devas.com"}
+                
             ]
         };
     }

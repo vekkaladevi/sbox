@@ -1,10 +1,16 @@
 import React from 'react';
-let { Slider, Styles, Tab, Tabs } = require('material-ui');
+let { Paper,Slider, Styles, Tab, Tabs } = require('material-ui');
 let { Typography } = Styles;
+
+
+let TenantList = require('./tenant_list') ;
+
 import RouterContext from '../../lib/router.js';
 import UserAction from '../../actions/user_action';
 //import TenantStore from '../../stores/tenant_store';
 //import UserStore from '../../stores/user_store';
+
+import '../../../less/style.less';
 
 class Dashboard extends React.Component {
     constructor() {
@@ -15,9 +21,8 @@ class Dashboard extends React.Component {
         let dummy = (
             <div><h2>Dasboard Item</h2></div>
         );
-        
         let items = [
-            { label: "Tenants", component: dummy},
+            { label: "Tenants", component: <TenantList/>},
             { label: "Accounts", component: dummy},
             { label: "Contacts", component: dummy}
         ];
@@ -35,6 +40,7 @@ class Dashboard extends React.Component {
         );        
     }
     render() {
+        /*
         let style = {
             boxSizing: 'border-box',
             padding:80,
@@ -45,9 +51,15 @@ class Dashboard extends React.Component {
             borderLeftColor: 'rgb(224, 224, 224)',
             minHeight: 800
         };
+        */
 	return (
-            <div style={style}>
-                {this.dashboardItems()}
+            <div className="dashboard grid">
+                <div className="col-1-3"/>
+                <div className="col-2-3">
+                    <Paper zDepth={1}>
+                        {this.dashboardItems()}
+                    </Paper>
+                </div>
             </div>
 	);
     }
