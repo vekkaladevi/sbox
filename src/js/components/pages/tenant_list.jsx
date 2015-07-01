@@ -2,7 +2,9 @@ import React from 'react';
 import MobileTearSheet from './components/mobile_tearsheet';
 
 let mui = require('material-ui');
+let ClearFix = mui.ClearFix;
 let Colors = mui.Styles.Colors;
+var FullWidthSection = require('./../full-width-section');
 import UserAction from '../../actions/user_action';
 import TenantStore from '../../stores/tenant_store';
 import UserStore from '../../stores/user_store';
@@ -47,30 +49,47 @@ class TenantList extends React.Component {
 	});	
     }
     render() {
-        let tenants = this.state.db.tenants.map((tenant, index) => {
-            return(
-                <List subheader={tenant.location}>
-                    <ListItem key={index}
-                              leftIcon={<CommunicationCall color={Colors.indigo500} />}
-                              rightIcon={<CommunicationChatBubble />}
-                              secondaryText={
-                                             <p>
-                                             <span style={{color: Colors.darkBlack}}>
-                                             Balance {tenant.balance} 
-                                             </span><br/>
-                                             Email  {tenant.email} 
-                                             </p>
-                                             }
-                              secondaryTextLines={2}>
-                        {tenant.name}
-                    </ListItem>
-                </List>
-            )                    
-        });
-        return (
-            <MobileTearSheet>
-                {tenants}
-            </MobileTearSheet>
+        let tenants = 
+                this.state.db.tenants.map((tenant, index) => (
+                    <div className="flex-item" style={{  background: 'pink'}} key={index}>
+                        <List subheader={tenant.location}>
+                            <ListItem  leftIcon={<CommunicationCall color={Colors.indigo500} />}
+                                       rightIcon={<CommunicationChatBubble />}
+                                       secondaryText="Mobile">
+                                (650) 555 - 1234
+                            </ListItem>
+                            <ListItem insetChildren={true}
+                                      rightIcon={<CommunicationChatBubble />}
+                                      secondaryText="Work">
+                                (323) 555-6789
+                            </ListItem>
+                            <ListItem leftIcon={<CommunicationCall color={Colors.indigo500} />}
+                                      rightIcon={<CommunicationChatBubble />}
+                                      secondaryText={
+                                                     <p>
+                                                     <span style={{color: Colors.darkBlack}}>
+                                                     Balance {tenant.balance} 
+                                                     </span><br/>
+                                                     Email  {tenant.email} 
+                                                     </p>
+                                                     }
+                                      secondaryTextLines={1}>
+                                {tenant.name}
+                            </ListItem>
+                        </List>
+                    </div>
+                ));
+        
+        let style = {
+                     position: 'relative',
+                     background: 'orange'
+                     };
+            
+            return (
+                <div className="flex-container">
+                    {tenants}
+                    
+                </div>            
         );
     }
 };

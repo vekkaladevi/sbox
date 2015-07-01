@@ -13,6 +13,7 @@ var ThemeManager = new mui.Styles.ThemeManager();
 
 var { AppBar, AppCanvas, IconButton} = mui;
 
+import RouterContext from '../lib/router.js';
 
 class Master extends React.Component {
 
@@ -54,13 +55,12 @@ class Master extends React.Component {
   }
 
   render() {
-    var styles = this.getStyles();
-    var title =
-      this.context.router.isActive('components') ? 'Components' : 'SreeMaata';
+      var styles = this.getStyles();
+      var title =
+      RouterContext.get().isActive('dashboard') ? 'Dashboard' : 'SreeMaata';
 
     return (
       <AppCanvas>
-
         <AppBar
           onLeftIconButtonTouchTap={this._onLeftIconButtonTouchTap}
           title={title}
@@ -86,10 +86,6 @@ class Master extends React.Component {
     this.refs.leftNav.toggle();
   }
 }
-
-Master.contextTypes = {
-  router: React.PropTypes.func
-};
 
 Master.childContextTypes = {
   muiTheme: React.PropTypes.object

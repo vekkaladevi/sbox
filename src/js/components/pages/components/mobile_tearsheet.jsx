@@ -39,8 +39,8 @@ let MobileTearSheet = React.createClass({
     };
 
     return (
-      <div style={styles.root}>
-        <div style={styles.container}>
+      <div >
+        <div>
           {this.props.children}
         </div>
         <img style={styles.bottomTear} src={bt} />

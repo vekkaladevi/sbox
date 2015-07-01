@@ -24,6 +24,7 @@
     "imagemin": "^3.2.0",
     "less": "^2.5.1",
     "less-loader": "^2.2.0",
+    "material-design-icons": "^2.0.0",
     "material-ui": "^0.9.2",
     "minimize": "^1.4.1",
     "node-libs-browser": "^0.5.2",

@@ -154,7 +154,6 @@ class Signup extends React.Component {
 	);
     }
     render() {
-        console.log("Showing Signup");
         let style={
 		  boxSizing: 'border-box',
                   padding: 24,

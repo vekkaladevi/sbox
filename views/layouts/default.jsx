@@ -5,8 +5,7 @@ import React from 'react';
 class DefaultLayout extends React.Component {
     render() {
         let styles = {
-            margin: 0,
-            display:'block'
+            margin: 0
         };
         return(
             <html>

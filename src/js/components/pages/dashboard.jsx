@@ -4,6 +4,7 @@ let { Typography } = Styles;
 
 
 let TenantList = require('./tenant_list') ;
+var FullWidthSection = require('./../full-width-section');
 
 import RouterContext from '../../lib/router.js';
 import UserAction from '../../actions/user_action';
@@ -30,7 +31,10 @@ class Dashboard extends React.Component {
             <Tabs onChange={this._onChange}>
                 {items.map((item, index) => (
                     <Tab key={index} label={item.label}>
+                    <Paper zDepth={1}>
+                    
                     {item.component}
+                    </Paper>
                     </Tab>
                  ))}
             </Tabs>
@@ -40,28 +44,17 @@ class Dashboard extends React.Component {
         );        
     }
     render() {
-        /*
+        
         let style = {
-            boxSizing: 'border-box',
-            padding:80,
-            maxWidth: 896,
-            marginLeft: 192,
-            borderLeftStyle: 'solid',
-            borderLeftWidth: 1,
-            borderLeftColor: 'rgb(224, 224, 224)',
-            minHeight: 800
+            paddingTop:60,
+            background:'yellow'
         };
-        */
+        
 	return (
-            <div className="dashboard grid">
-                <div className="col-1-3"/>
-                <div className="col-2-3">
-                    <Paper zDepth={1}>
-                        {this.dashboardItems()}
-                    </Paper>
-                </div>
+            <div>
+                {this.dashboardItems()}
             </div>
-	);
+        );
     }
     _onActive(tab){
         RouterContext.get().transitionTo(tab.props.route);
