@@ -8,6 +8,9 @@ var FullWidthSection = require('./full-width-section');
 var MediaQuery = require('react-responsive');
 var mui = require('material-ui');
 
+import '../../less/style.less';
+
+
 var {Colors, Typography} = mui.Styles;
 var ThemeManager = new mui.Styles.ThemeManager();
 
@@ -33,11 +36,7 @@ class Master extends React.Component {
     return {
       footer: {
           backgroundColor: Colors.grey900,
-          textAlign: 'center',
-          left:'0px',
-          bottom:'0px',
-          height:'30px',
-          width:'100%'
+          textAlign: 'center'
       },
       a: {
         color: darkWhite
@@ -71,7 +70,11 @@ class Master extends React.Component {
         </AppBar>
 
         <AppLeftNav ref="leftNav" />
-        <RouteHandler />
+        <div className="site">
+            <div className="siteContent">
+                <RouteHandler />
+            </div>
+        </div>
 
         <FullWidthSection style={styles.footer}>
             <p>Contact us, faq</p>

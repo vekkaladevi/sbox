@@ -46,7 +46,7 @@ class Dashboard extends React.Component {
     render() {
         
         let style = {
-            paddingTop:60,
+            paddingTop:200,
             background:'yellow'
         };
         

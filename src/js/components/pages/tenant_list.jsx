@@ -2,7 +2,7 @@ import React from 'react';
 import MobileTearSheet from './components/mobile_tearsheet';
 
 let mui = require('material-ui');
-let ClearFix = mui.ClearFix;
+let { Avatar, ClearFix} = mui;
 let Colors = mui.Styles.Colors;
 var FullWidthSection = require('./../full-width-section');
 import UserAction from '../../actions/user_action';
@@ -11,8 +11,11 @@ import UserStore from '../../stores/user_store';
 
 import Communication from '../svg-icons/communication';
 
-let {CommunicationCall, CommunicationChatBubble} = Communication;
+let {CommunicationCall, CommunicationEmail, CommunicationChatBubble} = Communication;
 
+let images_dir = './../../../../images';
+
+let bt = require("./../../../../images/bottom-tear.svg");
 
 let {
   List,
@@ -48,35 +51,74 @@ class TenantList extends React.Component {
 	    db: this.getTenantList()
 	});	
     }
+    renderTenantAvatar(tenant) {
+        let imageSrc = `${images_dir}/${tenant.name}.jpg`;
+        
+        console.log(imageSrc);
+        return(
+            <ListItem
+              leftAvatar={<Avatar src={imageSrc} />}
+              rightIcon={<CommunicationChatBubble />}>
+                {tenant.name}
+            </ListItem>
+        );
+    }
+
+    renderTenantBalance(tenant) {
+        return(
+            <ListItem  leftIcon={<CommunicationCall color={Colors.indigo500} />}
+                       secondaryText="Balance">
+                {tenant.balance}
+            </ListItem>
+        );
+    }
+    renderTenantPhone(tenant) {
+        return(
+            <ListItem  leftIcon={<CommunicationCall color={Colors.indigo500} />}
+                       rightIcon={<CommunicationChatBubble />}
+                       secondaryText="Mobile">
+                {tenant.phone}
+            </ListItem>
+        );
+    }
+
+
+    renderTenantEmail(tenant) {
+        return(
+            <ListItem  leftIcon={<CommunicationEmail color={Colors.indigo500} />}
+                       secondaryText="Personal">
+                {tenant.email}
+            </ListItem>
+        );
+    }
     render() {
+        let styles = {
+            boxStyle: {
+                border: 'solid 1px #d9d9d9',
+                borderBottom: 'none',
+                overflow: 'hidden'
+            },
+              bottomTear: {
+                  display: 'block',
+                  position: 'relative',
+                  marginTop: -10,
+                  width: 360
+              }
+        };
+
         let tenants = 
                 this.state.db.tenants.map((tenant, index) => (
-                    <div className="flex-item" style={{  background: 'pink'}} key={index}>
+                    <div className="flex-item" style={styles.boxStyle} key={index}>
                         <List subheader={tenant.location}>
-                            <ListItem  leftIcon={<CommunicationCall color={Colors.indigo500} />}
-                                       rightIcon={<CommunicationChatBubble />}
-                                       secondaryText="Mobile">
-                                (650) 555 - 1234
-                            </ListItem>
-                            <ListItem insetChildren={true}
-                                      rightIcon={<CommunicationChatBubble />}
-                                      secondaryText="Work">
-                                (323) 555-6789
-                            </ListItem>
-                            <ListItem leftIcon={<CommunicationCall color={Colors.indigo500} />}
-                                      rightIcon={<CommunicationChatBubble />}
-                                      secondaryText={
-                                                     <p>
-                                                     <span style={{color: Colors.darkBlack}}>
-                                                     Balance {tenant.balance} 
-                                                     </span><br/>
-                                                     Email  {tenant.email} 
-                                                     </p>
-                                                     }
-                                      secondaryTextLines={1}>
-                                {tenant.name}
-                            </ListItem>
+                            {this.renderTenantAvatar(tenant)}
+                            <ListDivider inset={true} />
+                            {this.renderTenantBalance(tenant)}
+                            <ListDivider inset={true} />
+                            {this.renderTenantPhone(tenant)}
+                            {this.renderTenantEmail(tenant)}
                         </List>
+                        <img style={styles.bottomTear} src={bt} />
+                        
                     </div>
                 ));
         
@@ -87,8 +129,7 @@ class TenantList extends React.Component {
             
             return (
                 <div className="flex-container">
-                    {tenants}
-                    
+                    {tenants}                    
                 </div>            
         );
     }
