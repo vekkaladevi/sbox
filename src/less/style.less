@@ -1,5 +1,4 @@
 @import "../../node_modules/normalize.css/normalize.css";
-@import "./_flex.less";
 @import url(http://fonts.googleapis.com/css?family=Roboto:300);
 
 .signupForm {
@@ -11,32 +10,47 @@
 .loginForm {
     padding:26px;
 }
-
-
-fullscreen a {
-    transition: transform 1s
-}
   
 .flex {
-    display:flex;
+    display: flex;
 }
 
-.flex-container-column {
-  display:flex;
-  flex-flow:column;
+.flex__flow(@direction: column, @wrap: wrap) {
+    flex-flow: @direction @wrap;
 }
+
+.flex__justify__content(@content: center) {
+    justify-content: @content;
+}
+
+.flex__justify__content(@content: center) {
+    justify-content: @content;
+}
+
+.flex__align__items(@align: flex-start) {
+    align-items: @align;
+}
+
+.flex__align__content(@align: flex-start) {
+    align-content: @align;
+}
+
+.flex__direction(@direction: column) {
+    flex-direction: @direction;
+}
+
 
 .flex-container {
-  display:flex;
-  flex-flow:row wrap;
-  justify-content:space-around;
+    .flex();
+    .flex__flow(row, wrap);
+    .flex__justify__content(space-around);
 }
 
 .flex-container-center {
-  display: flex;
-  align-items:center;
-  justify-content:center;
-  margin:2% 0;
+    .flex();
+    align-items:center;
+    .flex__justify__content;
+    margin:2% 0;
 }
 
 .flex-items {
@@ -46,9 +60,86 @@ fullscreen a {
 
 footer {
     background-color:cadetblue;
-    display:flex;
-    justify-content:center;
+    .flex;
+    .flex__justify__content;
+}
 
+
+.grid {
+  border: solid 1px #e7e7e7;
+}
+
+.grid__row {
+    .flex();
+}
+
+.grid__item {
+  flex: 1;
+  padding: 12px;
+  border: solid 1px #e7e7e7;
+}
+
+
+.banner {
+    .flex();
+    .flex__align__items(center);
+    .flex__justify__content(space-around);
+    
+    height: 180px;
+    background-color: rgb(0, 188, 212);
+    overflow: hidden;
+}
+
+.banner__row {
+    .flex();
+    margin: 20px;
+}
+
+.banner__item {
+    flex: 1;
+    padding: 12px;
+    border: solid 1px #e7e7e7;
+}
+
+.banner__content {
+    text-align: center;
+}
+
+.banner__title,
+.banner__sub {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+.banner__button {
+    padding: 12px;
+    border: solid 1px #e7e7e7;
+}
+
+@media all and ( min-width: 480px ) {
+    .banner {
+	height: 240px;
+    }
+
+    .navigation {
+	.flex__direction;
+    }
+}
+
+@media all and ( min-width: 768px ) {
+    .banner {
+	height: 360px;
+    }
+    .navigation {
+	.flex__justify__content(space-around);
+    }
+}
+
+@media all and ( min-width: 960px ) {
+    .banner {
+	height: 480px;
+    }
 }
 
 html|* > svg {

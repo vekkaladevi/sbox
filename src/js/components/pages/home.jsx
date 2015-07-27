@@ -16,113 +16,69 @@ var {Colors, Spacing, Typography} = mui.Styles;
 
 var HomePage = React.createClass({
 
-  mixins: [StylePropable, StyleResizable],
+    mixins: [StylePropable, StyleResizable],
 
-  contextTypes: {
-    router: React.PropTypes.func
-  },
+    contextTypes: {
+	router: React.PropTypes.func
+    },
 
-  render: function() {
-    var style = {
-      paddingTop: Spacing.desktopKeylineIncrement
-    };
+    render: function() {
+	return (
+	    <div>
+              {this._getHomePageHero()}
+              {this._getHomePurpose()}
+              {this._getHomeFeatures()}
+              {this._getHomeContribute()}
+	    </div>
+	);
+    },
+    
+    _getHomePageHero: function() {
 
-    return (
-      <div style={style}>
-        {this._getHomePageHero()}
-        {this._getHomePurpose()}
-        {this._getHomeFeatures()}
-        {this._getHomeContribute()}
-      </div>
-    );
-  },
-
-  _getHomePageHero: function() {
-    var styles = {
-        root: {
-            backgroundColor: Colors.cyan500,
-            overflow: 'hidden'
-      },
-      svgLogo: {
-          marginLeft: (window.innerWidth * 0.5) - 130 + 'px',
-          width: '420px'
-      },
-      tagline: {
-        margin: '16px auto 0 auto',
-        textAlign: 'center',
-        maxWidth: '575px'
-      },
-      label: {
-        color: ThemeManager.palette.primary1Color,
-      },
-      githubStyle: {
-        margin: '16px 32px 0px 8px'
-      },
-      demoStyle: {
-        margin: '16px 32px 0px 32px'
-      },
-      h1: {
-        color: Colors.teal600,// Colors.darkWhite,
-        fontWeight: Typography.fontWeightLight,
-      },
-      h2: {
-        //.mui-font-style-title
-        fontSize: '20px',
-        lineHeight: '28px',
-        paddingTop: '19px',
-        marginBottom: '13px',
-        letterSpacing: '0',
-      },
-      nowrap: {
-        whiteSpace: 'nowrap'
-      },
-      taglineWhenLarge: {
-        marginTop: '32px'
-      },
-      h1WhenLarge: {
-        fontSize: '56px'
-      },
-      h2WhenLarge: {
-        //.mui-font-style-headline;
-        fontSize: '24px',
-        lineHeight: '32px',
-        paddingTop: '16px',
-        marginBottom: '12px'
-      }
-    };
-
-    styles.h2 = this.mergeStyles(styles.h1, styles.h2);
-
-    if (this.isDeviceSize(StyleResizable.statics.Sizes.LARGE)) {
-      styles.tagline = this.mergeStyles(styles.tagline, styles.taglineWhenLarge);
-      styles.h1 = this.mergeStyles(styles.h1, styles.h1WhenLarge);
-      styles.h2 = this.mergeStyles(styles.h2, styles.h2WhenLarge);
-    }
+	var styles = {
+	    root: {
+		backgroundColor: Colors.cyan500,
+		overflow: 'hidden'
+	    },
+	    svgLogo: {
+		marginLeft: (window.innerWidth * 0.5) - 130 + 'px',
+		width: '420px'
+	    },
+	    label: {
+		color: ThemeManager.palette.primary1Color,
+	    },
+	    h1: {
+		color: Colors.darkWhite,
+		fontWeight: Typography.fontWeightLight,
+	    }
+	};
+	
 
     return (
-      <FullWidthSection style={styles.root}>
-          <img style={styles.svgLogo} src={homePageLogo} />
-          <div style={styles.tagline}>
-            <h1 style={styles.h1}>Tenant Management System</h1>
-            <h2 style={styles.h2}>
-                Rental management easy. Relax while we take care of your home!!
-            </h2>
-            <RaisedButton 
-              className="demo-button" 
+	  <div className="banner">
+	    <div className="banner__content">
+              <h1 style={styles.h1}>Chintamani</h1>
+              <h2 style={styles.h1}>
+		Rental management easy. Relax while we take care of your home!!
+              </h2>
+	      <div className="banner__row ">
+	      <div className="banner__item">
+	      <RaisedButton 
               label="Demo" 
               onTouchTap={this._onDemoClick}
-              linkButton={true} 
-              style={styles.demoStyle} 
+	      linkButton={true} 
               labelStyle={styles.label}/>
-            <RaisedButton 
-              className="github-button" 
+	      </div>
+	      <div className="banner__item">
+	      <RaisedButton 
               label="GitHub" 
               linkButton={true} 
-              href="https://github.com/callemall/material-ui" 
-              style={styles.githubStyle} 
+	      href="https://github.com/callemall/material-ui" 
               labelStyle={styles.label}/>
-          </div>
-      </FullWidthSection>
+	    </div>
+	      </div>
+	    </div>
+	  </div>
     );
   },
 
