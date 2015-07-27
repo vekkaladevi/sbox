@@ -96,19 +96,19 @@ class TenantList extends React.Component {
             boxStyle: {
                 border: 'solid 1px #d9d9d9',
                 borderBottom: 'none',
-                overflow: 'hidden'
+                overflow: 'hidden',
+		height:'auto'
             },
               bottomTear: {
                   display: 'block',
                   position: 'relative',
                   marginTop: -10,
-                  width: 360
               }
         };
 
         let tenants = 
                 this.state.db.tenants.map((tenant, index) => (
-                    <div className="flex-item" style={styles.boxStyle} key={index}>
+                    <div  className="flex-item" style={styles.boxStyle} key={index}>
                         <List subheader={tenant.location}>
                             {this.renderTenantAvatar(tenant)}
                             <ListDivider inset={true} />

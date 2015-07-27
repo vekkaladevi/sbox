@@ -17,8 +17,23 @@ module.exports = {
         loaders: [
             { test: /\.jsx$/, loaders: ['babel'], exclude: /node_modules/ },
             { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
-              { test: /\.less$/, loader: "style!css!less!postcss-loader!" },
-	     
+	    // Extract css files
+            {
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+            },
+            // Optionally extract less files
+            // or any other compile-to-css language
+          /*  {
+                test: /\.less$/,
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader!postcss")
+            },
+	    {
+		test:   /\.css$/,
+                loader: "style-loader!css-loader!postcss-loader"
+	    },
+*/
+	    { test: /\.less$/, loader: "style-loader!css-loader!less-loader!postcss"},
 	    { test: /\.(jpe?g|png|gif|svg)$/i,
               loader: 'url-loader?limit=8192' // inline base64 URLs for <=8k images, direct URLs for the rest
 	    },
@@ -27,7 +42,7 @@ module.exports = {
             { test: /\.(ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" }
         ]
     },
-    postcss: [ autoprefixer({ browsers: ['last 2 version'] }) ],
+    postcss: [ autoprefixer({ browsers: ['last 4 versions'] }) ],
     resolve: {
 	// you can now require('file') instead of require('file.jsx')
 	extensions: ['', '.jsx', '.js', 'less']

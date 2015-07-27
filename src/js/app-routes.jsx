@@ -17,7 +17,8 @@ let {
     Logout,
     Settings,
     Dashboard,
-    Tenant    
+    Tenant,
+    Quiz
 } = pages;
 
 
@@ -31,6 +32,7 @@ let routes = (
 	    <Route name="logout" path="/signout" handler={Logout}/>
             <Route name="tenant" path="/tenant/:tenantId" handler={Tenant}/>
             <Route name="dashboard" path="/dashboard" handler={Dashboard}/>
+	    <Route name="quiz" path="/quiz" handler={Quiz}/>
             <DefaultRoute handler={Home}/>
 	</Route>
 );

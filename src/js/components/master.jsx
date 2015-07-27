@@ -4,7 +4,6 @@ import { Link } from 'react-router';
 var RouteHandler = Router.RouteHandler;
 var AppLeftNav = require('./app-left-nav');
 var AppTopNav = require('./app-top-nav');
-var FullWidthSection = require('./full-width-section');
 var MediaQuery = require('react-responsive');
 var mui = require('material-ui');
 
@@ -14,7 +13,7 @@ import '../../less/style.less';
 var {Colors, Typography} = mui.Styles;
 var ThemeManager = new mui.Styles.ThemeManager();
 
-var { AppBar, AppCanvas, IconButton} = mui;
+var { AppBar,  IconButton} = mui;
 
 import RouterContext from '../lib/router.js';
 
@@ -59,7 +58,7 @@ class Master extends React.Component {
       RouterContext.get().isActive('dashboard') ? 'Dashboard' : 'SreeMaata';
 
     return (
-      <AppCanvas>
+      <div>
         <AppBar
           onLeftIconButtonTouchTap={this._onLeftIconButtonTouchTap}
           title={title}
@@ -70,18 +69,17 @@ class Master extends React.Component {
         </AppBar>
 
         <AppLeftNav ref="leftNav" />
-        <div className="site">
-            <div className="siteContent">
-                <RouteHandler />
-            </div>
-        </div>
-
-        <FullWidthSection style={styles.footer}>
+        <RouteHandler />
+	
+	<footer>
+	  <div>
             <p>Contact us, faq</p>
             <p>Copyright</p>
-        </FullWidthSection>
+	  </div>
+        </footer>
 
-      </AppCanvas>
+
+      </div>
     );
   }
 

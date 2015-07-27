@@ -1,16 +1,54 @@
-@import "./_grid.less";
-@import "./_flex.less";
 @import "../../node_modules/normalize.css/normalize.css";
+@import "./_flex.less";
 @import url(http://fonts.googleapis.com/css?family=Roboto:300);
 
-.formClassName {
-    margin-top:150px;
-    padding: 26px;
+.signupForm {
+    padding:26px;
+    display:flex;
+    flex-flow:column;
 }
 
-.dashboard {
-    position:relative;
-    padding:80px;
+.loginForm {
+    padding:26px;
+}
+
+
+fullscreen a {
+    transition: transform 1s
+}
+  
+.flex {
+    display:flex;
+}
+
+.flex-container-column {
+  display:flex;
+  flex-flow:column;
+}
+
+.flex-container {
+  display:flex;
+  flex-flow:row wrap;
+  justify-content:space-around;
+}
+
+.flex-container-center {
+  display: flex;
+  align-items:center;
+  justify-content:center;
+  margin:2% 0;
+}
+
+.flex-items {
+    margin:2% 0;
+    flex:0 1 50%;
+}
+
+footer {
+    background-color:cadetblue;
+    display:flex;
+    justify-content:center;
+
 }
 
 html|* > svg {
@@ -20,3 +58,4 @@ html|* > svg {
 html {
     font-family: 'Roboto', sans-serif;
 }
+

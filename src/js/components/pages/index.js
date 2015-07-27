@@ -5,5 +5,6 @@ module.exports = {
     Logout: require('./logout'),
     Settings: require('./settings'),
     Dashboard: require('./dashboard'),
-    Tenant: require('./tenant')
+    Tenant: require('./tenant'),
+    Quiz:require('./quiz')
 };

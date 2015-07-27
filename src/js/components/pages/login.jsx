@@ -7,10 +7,12 @@ let {
     AlertPanel
 } = components;
 
-var RaisedButton = mui.RaisedButton;
+let {
+    Paper,
+    RaisedButton
+} = mui;
 
 import '../../../less/style.less';
-
 import UserAction from '../../actions/user_action';
 import UserStore from '../../stores/user_store';
 
@@ -98,9 +100,10 @@ class Login extends React.Component {
 	}
 
 	return (
-           <mui.Paper zDepth={2}>                
+	    
+           <Paper zDepth={2} >                
 	        <Formsy.Form 
-               className="formClassName" 
+               className="loginForm" 
                onSubmit={this.submitForm.bind(this)} 
                ref="form"
                >
@@ -149,25 +152,16 @@ class Login extends React.Component {
                     </div>
 	        </Formsy.Form>
 
-            </mui.Paper>
+            </Paper>
 	);
     }
     
     render() {
-	      let style={
-		  boxSizing: 'border-box',
-                  padding: 24,
-                  maxWidth: 896,
-                  marginLeft: '20%',
-                  marginRight: '20%',
-                  borderLeftStyle: 'solid',
-                  minHeight: 800
-	      };
 	return (
-	    <div style={style}>
-	      {this.renderErrors()}
-	      {this.renderForm()}
-	    </div>
+            <div className="flex-container-center">
+		  {this.renderErrors()}
+		  {this.renderForm()}
+	      </div>
 	);
     }
 };

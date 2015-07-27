@@ -31,7 +31,7 @@ class AppTopNav extends React.Component {
     getStyles() {
         return {
             paddingLeft: Spacing.desktopGutter,
-            display: 'inline-block',
+  //          display: 'inline-block',
             textDecoration:'none'
         };
     }
@@ -39,6 +39,13 @@ class AppTopNav extends React.Component {
     renderMenu() {
         let user = this.state.userInfo;
         let userMenu;
+	
+	let navStyle={
+	    display: 'flex',
+	    flexWrap: 'wrap',
+	    justifyContent:'flex-end',
+	    listStyle:'none'
+	};
 
         if (user.loggedIn) {
             let routes = [
@@ -46,8 +53,9 @@ class AppTopNav extends React.Component {
                 { to: 'logout', text: 'Logout' }
             ];
             userMenu = (
-                <ul>
+                <ul style={navStyle}>
                     {routes.map((route, index) => (
+	
                         <Link key={index} to={route.to} style={this.getStyles()}>{route.text}</Link>
                      ))}
                 </ul>
@@ -59,7 +67,7 @@ class AppTopNav extends React.Component {
             ];
 
             userMenu = (
-               <ul>
+                 <ul style={navStyle}>
                     {routes.map((route, index) => (
                         <Link key={index} to={route.to} style={this.getStyles()}>
                         <FlatButton  primary={route.primary} secondary={route.secondary}>{route.text}</FlatButton>
@@ -73,15 +81,10 @@ class AppTopNav extends React.Component {
         );        
     }
     render() {
-        let topMenuStyle = {
-            marginLeft: "auto",
-            paddingRight:'2em',
-            marginTop: '5'
-        };
         return (
-            <div style={topMenuStyle}>
+            <nav>
                 {this.renderMenu()}
-            </div>
+            </nav>
         );
     }
 }

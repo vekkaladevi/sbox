@@ -69,7 +69,7 @@ class Signup extends React.Component {
 	return (
             <Paper zDepth={2}>
 	        <Formsy.Form 
-               className="formClassName" 
+               className="signupForm" 
                onSubmit={this.submitForm.bind(this)} 
                ref="form"
                >
@@ -154,16 +154,8 @@ class Signup extends React.Component {
 	);
     }
     render() {
-        let style={
-		  boxSizing: 'border-box',
-                  padding: 24,
-                  maxWidth: 600,
-                  marginLeft: '20%',
-                  marginRight: '20%',
-                  minHeight: 800
-	      };
 	return (
-	    <div style={style}>
+	    <div className="flex-container-center">
 	        {this.renderErrors()}
 	        {this.renderForm()}
 	    </div>

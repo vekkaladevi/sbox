@@ -60,7 +60,8 @@ class AppLeftNav extends React.Component {
         } else {
             menuItems = [
                 { route: 'signup', text: 'Signup' },
-                { route: 'login', text: 'Login' }  
+                { route: 'login', text: 'Login' },
+		{ route: 'quiz', text: 'Quiz'}
             ];
         }
         var header = (
